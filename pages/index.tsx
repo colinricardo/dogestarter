@@ -1,10 +1,6 @@
-import useSWR from "swr";
-import fetcher from "../utils/fetcher";
 import Image from "next/image";
-import env from "../config/environment";
 import { useState } from "react";
-
-const { API } = env;
+import MessageBlock from "@/components/MessageBlock";
 
 const ITEMS = [
   "typescript",
@@ -16,6 +12,7 @@ const ITEMS = [
   "nextJS image component",
   "custom 404 page",
   "responsive breakpoint",
+  "absolute import paths",
   "swr",
   "todo: full ssr",
 ];
@@ -28,13 +25,6 @@ const renderList = () => {
       ))}
     </div>
   );
-};
-
-const MessaageBlock = () => {
-  const { data, error } = useSWR(`${API}/doge`, fetcher);
-  if (error) return <div>Could not load message.</div>;
-  if (!data) return <div>Loading message,,,</div>;
-  return <div>Message from API: {data.message}</div>;
 };
 
 const Index = () => {
@@ -58,7 +48,7 @@ const Index = () => {
         />
         <div className="mb-4" />
         <h1 className="text-xlarge">NextJS Starter App </h1>
-        <MessaageBlock />
+        <MessageBlock />
       </div>
     );
   };
@@ -67,7 +57,7 @@ const Index = () => {
     return (
       <div className={darkModeOn ? "dark" : "light"}>
         <div className="bg-light-background dark:bg-dark-background text-light-primaryContrast dark:text-dark-primaryContrast">
-          <div className="flex flex-col sm:flex sm:flex-row sm:space-x-32 sm:align-center w-screen h-screen items-center justify-center text-center">
+          <div className="flex flex-col items-center justify-center w-screen h-screen text-center sm:flex sm:flex-row sm:space-x-32 sm:align-center">
             {renderHeader()}
             {renderList()}
           </div>
