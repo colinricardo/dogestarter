@@ -5,7 +5,7 @@ import MessageBlock from "@/components/MessageBlock";
 const ITEMS = [
   "typescript",
   "nextJS",
-  "tailwind",
+  "tailwind 3",
   "light/dark mode (click doge)",
   "load config from .env",
   "nextJS API routes",
@@ -56,7 +56,7 @@ const Index = () => {
   const render = () => {
     return (
       <div className={darkModeOn ? "dark" : "light"}>
-        <div className="bg-light-background dark:bg-dark-background text-light-primaryContrast dark:text-dark-primaryContrast">
+        <div className="bg-background dark:bg-background-dark text-primaryContrast dark:text-primaryContrast-dark">
           <div className="flex flex-col items-center justify-center w-screen h-screen text-center sm:flex sm:flex-row sm:space-x-32 sm:align-center">
             {renderHeader()}
             {renderList()}

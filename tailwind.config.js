@@ -1,6 +1,10 @@
 module.exports = {
   mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./containers/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: "class",
   theme: {
     fontFamily: {
@@ -19,30 +23,42 @@ module.exports = {
       xxsmall: ["12px", "16px"],
     },
     colors: {
-      light: {
-        brand: "#ec4f27",
-        brandContrast: "#fcfcfc",
-        foreground: "#fcfcfc",
-        background: "#f2f2f2",
-        primaryContrast: "#171717",
-        secondaryContrast: "#888888",
-        tertiaryContrast: "#bdbdbd",
-        error: "#e20000",
-        success: "#16ae40",
+      brand: {
+        DEFAULT: "#ec4f27",
+        dark: "#ec4f27",
       },
-      dark: {
-        brand: "#ec4f27",
-        brandContrast: "#fcfcfc",
-        foreground: "#202020",
-        background: "#1b1b1b",
-        primaryContrast: "#fcfcfc",
-        secondaryContrast: "#bdbdbd",
-        tertiaryContrast: "#888888",
-        error: "#e20000",
-        success: "#16ae40",
+      brandContrast: {
+        DEFAULT: "#171717",
+        dark: "#fcfcfc",
       },
-    },
-    extend: {
+      foreground: {
+        DEFAULT: "#fcfcfc",
+        dark: "#202020",
+      },
+      background: {
+        DEFAULT: "#f2f2f2",
+        dark: "#202020",
+      },
+      primaryContrast: {
+        DEFAULT: "#171717",
+        dark: "#fcfcfc",
+      },
+      secondaryContrast: {
+        DEFAULT: "#888888",
+        dark: "#bdbdbd",
+      },
+      tertiaryContrast: {
+        DEFAULT: "#bdbdbd",
+        dark: "#888888",
+      },
+      error: {
+        DEFAULT: "#e20000",
+        dark: "#e20000",
+      },
+      success: {
+        DEFAULT: "#16ae40",
+        dark: "#16ae40",
+      },
       animation: {
         wiggle: "wiggle 0.5s ease-in-out infinite",
       },
@@ -60,11 +76,11 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      display: ["dark"],
-      visibility: ["responsive"],
-    },
-  },
+  // variants: {
+  //   extend: {
+  //     display: ["dark"],
+  //     visibility: ["responsive"],
+  //   },
+  // },
   plugins: [require("@tailwindcss/forms")],
 };
